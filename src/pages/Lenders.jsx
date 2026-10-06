@@ -1,27 +1,35 @@
 import { useEffect } from 'react'
+import { ActionsBar, Table } from '../cmps'
+import { TABLE_HEADERS } from '../data'
 import { useGlobalState } from '../hooks'
 import { get } from '../controllers'
 import { ACTIONS } from '../state'
-import { ActionsBar, Table } from '../cmps'
-import { TABLE_HEADERS } from '../data'
 import { arrays, toastMsg } from '../functions'
+import { applyDemoChanges } from '../functions/demoData'
 
 export const Lenders = () => {
-
-   const { dispatch, lenders, refreshCount, search, sort } = useGlobalState()
+   const { dispatch, lenders, refreshCount, search, sort, loggedInUser } = useGlobalState()
+   const isAuthenticated = Boolean(loggedInUser || localStorage.getItem('vito'))
    const rows = arrays.sortBy(arrays.filterObjects(lenders, ['contact', 'lender'], search), sort.by, sort.dir)
 
    useEffect(() => {
+      dispatch({ type: ACTIONS.SET, entity: 'isDataLoading', payload: true })
       get.data('lenders')
-         .then((res) => dispatch({ type: ACTIONS.SET, entity: 'lenders', payload: res.data }))
-         .catch((error)=>toastMsg.error(error.response.data.error))
+         .then((res) => {
+            const data = isAuthenticated ? res.data : applyDemoChanges('lenders', res.data)
+            dispatch({ type: ACTIONS.SET, entity: 'lenders', payload: data })
+            dispatch({ type: ACTIONS.SET, entity: 'serverConnected', payload: true })
+         })
+         .catch((error) => {
+            dispatch({ type: ACTIONS.SET, entity: 'serverConnected', payload: false })
+            toastMsg.error(error.response?.data?.error || 'Unable to connect to the server')
+         })
          .finally(() => dispatch({ type: ACTIONS.SET, entity: 'isDataLoading', payload: false }))
-   }, [refreshCount])
+   }, [refreshCount, isAuthenticated, dispatch])
 
    return (
       <main className='page lenders'>
          <ActionsBar />
-         {/* <button className='btn' style={{ position: 'absolute',background:'black',zIndex:9099 }} onClick={insert}>insert lenders</button> */}
          <Table headers={TABLE_HEADERS.lenders} rows={rows} />
       </main>
    )

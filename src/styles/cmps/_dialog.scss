@@ -1,53 +1,92 @@
 .dialog {
    width: 100vw;
-   z-index: 999;
    height: 100vh;
-   background: rgb(0 0 0 / 0.3);
-   filter: drop-shadow(1px 1px 1px $secondary-color);
+   z-index: 999;
    display: grid;
    place-items: center;
-   cursor: no-drop;
+   padding: 20px;
 
    .dialog-content {
-      min-height: 300px;
-      min-width: 250px;
-      cursor: default;
-      background: $primary-color;
-      flex-direction: column;
-      max-width: 95%;
-      max-height: 90%;
-      z-index: 999;
-      border: 4px solid $secondary-color;
+      width: min(560px, 100%);
+      max-height: 90vh;
       overflow-y: auto;
+      flex-direction: column;
       gap: 0;
-      color: white;
-
+      color: $text-color;
+      background: #fff;
+      border: 1px solid #dce8ec;
+      border-radius: 18px;
+      box-shadow: 0 24px 70px rgb(8 28 40 / 0.2);
+      animation: dialog-in 0.18s ease-out;
 
       header {
-         gap: 1em;
          position: sticky;
          top: 0;
-         right: 0;
+         z-index: 2;
          justify-content: space-between;
          align-items: center;
-         padding: 1em;
-         border-bottom: 4px solid $secondary-color;
-         outline-offset: 0px;
-         background: $background-color;
+         padding: 20px 22px;
+         background: #fff;
+         border-bottom: 1px solid #e3ecef;
 
-         z-index: 11;
+         > div {
+            flex-direction: column;
+            gap: 2px;
+         }
+
+         .eyebrow {
+            color: $c5;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+         }
+
+         .btns {
+            align-items: center;
+         }
       }
 
       main {
-         flex: 1;
-         padding: 1em;
          flex-direction: column;
-         gap: 1em;
+         gap: 14px;
+         padding: 22px;
+         flex: 1;
       }
 
       footer {
-         padding: 1em;
+         padding: 0 22px 22px;
          flex-direction: column;
+         color: #73858e;
+         text-align: center;
+      }
+   }
+}
+
+.dialog-link {
+   color: $c5;
+   font-weight: 600;
+
+   &:hover {
+      text-decoration: underline;
+   }
+}
+
+@media (max-width: $mobile-size) {
+   .dialog {
+      padding: 10px;
+
+      .dialog-content {
+         max-height: 94vh;
+         border-radius: 14px;
+
+         header,
+         main {
+            padding: 16px;
+         }
+
+         footer {
+            padding: 0 16px 16px;
+         }
       }
    }
 }

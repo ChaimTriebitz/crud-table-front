@@ -1,34 +1,34 @@
 .App {
+   min-height: 100vh;
+   width: 100%;
+   display: flex;
    flex-direction: column;
-   height: 100vh;
-   width: 100vw;
-   gap: 0;
+   background: $background-color;
 
    .page {
-      height: calc(100% - 75px);
-      gap: 0;
+      min-height: calc(100vh - 76px);
+      flex: 1;
       flex-direction: column;
+      gap: 0;
+      padding: 0 24px 24px;
    }
-
 }
 
 ::-webkit-scrollbar {
-   width: 0.75em;
-   height: 0.75em;
+   width: 10px;
+   height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-   background: $secondary-color;
+   background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-   background: $warning-color;
-   border-radius: 5px;
+   background: #b8cbd3;
+   border-radius: 999px;
 }
 
-::-webkit-calender-picker-indicator {
-   background: white;
-   padding: 0.5em;
-   cursor: pointer;
-   border-radius: 5px;
+::selection {
+   background: $c4;
+   color: $c1;
 }

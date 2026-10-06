@@ -1,47 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 
-export const MultiSelect = ({
-   field = {},
-   value = [],
-   handleChange = () => { },
-   options = []
-}) => {
-
-   const [values, setValues] = useState(value)
-   console.log(values)
-
-   useEffect(() => {
-      handleChange(field.internal_name, values)
-   }, [values])
-
+export const MultiSelect = ({ field = {}, value = [], handleChange = () => {}, options = [], disabled = false }) => {
+   const [values, setValues] = useState(value || [])
+   useEffect(() => { setValues(value || []) }, [value])
+   useEffect(() => { if (!disabled) handleChange(field.internal_name, values) }, [values, disabled, field.internal_name])
    const handleCheckboxChange = (optionValue) => {
-      setValues((prevValues) =>
-         prevValues.includes(optionValue)
-            ? prevValues.filter(v => v !== optionValue)
-            : [...prevValues, optionValue]
-      )
+      if (disabled) return
+      setValues(prev => prev.includes(optionValue) ? prev.filter(v => v !== optionValue) : [...prev, optionValue])
    }
-
    return (
       <div className='input-item multi-select'>
-         {
-            options.map(option => {
-               const { id, option_display, option_value } = option
-               return (
-                  <div key={id} className='multi-select-item'>
-                     <input
-                        type="checkbox"
-                        id={id}
-                        value={option}
-                        checked={values.includes(option_value)}
-                        onChange={() => handleCheckboxChange(option_value)}
-                     />
-                     <label htmlFor={id}>{option_display}</label>
-                  </div>
-               )
-            })
-         }
+         {options.map(option => (
+            <div key={option.id} className='multi-select-item'>
+               <input type='checkbox' id={option.id} value={option.option_value} checked={values.includes(option.option_value)} onChange={() => handleCheckboxChange(option.option_value)} disabled={disabled} />
+               <label htmlFor={option.id}>{option.option_display}</label>
+            </div>
+         ))}
       </div>
-   );
-};
-
+   )
+}

@@ -17,7 +17,18 @@ export const Lenders = () => {
       get.data('lenders')
          .then((res) => {
             const data = isAuthenticated ? res.data : applyDemoChanges('lenders', res.data)
-            dispatch({ type: ACTIONS.SET, entity: 'lenders', payload: data })
+            dispatch({
+               type: ACTIONS.SET,
+               entity: 'lenders',
+               payload: data.map(row => ({
+                  ...row,
+                  _source: row._source || 'database',
+                  _canEdit: isAuthenticated && Boolean(
+                     row.createdBy && loggedInUser?._id &&
+                     String(row.createdBy) === String(loggedInUser._id)
+                  ),
+               }))
+            })
             dispatch({ type: ACTIONS.SET, entity: 'serverConnected', payload: true })
          })
          .catch((error) => {
@@ -25,7 +36,7 @@ export const Lenders = () => {
             toastMsg.error(error.response?.data?.error || 'Unable to connect to the server')
          })
          .finally(() => dispatch({ type: ACTIONS.SET, entity: 'isDataLoading', payload: false }))
-   }, [refreshCount, isAuthenticated, dispatch])
+   }, [refreshCount, isAuthenticated, loggedInUser, dispatch])
 
    return (
       <main className='page lenders'>

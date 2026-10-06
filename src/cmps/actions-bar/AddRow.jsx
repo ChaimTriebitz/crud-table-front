@@ -2,9 +2,7 @@ import { svgs } from '../../assets'
 import { useGlobalState } from '../../hooks'
 import { ACTIONS } from '../../state'
 
-
 export const AddRow = () => {
-
    const { dispatch } = useGlobalState()
 
    const handleAddRow = () => {
@@ -16,7 +14,14 @@ export const AddRow = () => {
 
    return (
       <section className='add-row'>
-         <button onClick={handleAddRow}>{svgs.plus}</button>
+         <button
+            type='button'
+            className='add-row-button'
+            onClick={handleAddRow}
+         >
+            {svgs.plus}
+            <span>Add row</span>
+         </button>
       </section>
    )
 }

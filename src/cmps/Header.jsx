@@ -10,8 +10,9 @@ const links = [
 ]
 
 export const Header = () => {
-   const { dispatch } = useGlobalState()
+   const { dispatch, loggedInUser, serverConnected } = useGlobalState()
    const { pathname } = useLocation()
+   const isAuthenticated = Boolean(loggedInUser || localStorage.getItem('vito'))
 
    useEffect(() => {
       dispatch({ type: ACTIONS.SET, entity: 'page', payload: pathname.replace(/^\/+/, '') })
@@ -43,6 +44,22 @@ export const Header = () => {
                </NavLink>
             ))}
          </nav>
+
+         <div className='connection-status' title='Public visitors use live data from the backend but their changes stay in this browser.'>
+            <span className={'status-dot ' + (serverConnected ? 'online' : '')} />
+            <span>{serverConnected ? 'Live server' : 'Connecting'}</span>
+            <small>{isAuthenticated ? 'Database write access' : 'Local demo edits'}</small>
+         </div>
+
+         {!isAuthenticated && (
+            <button
+               type='button'
+               className='login-button'
+               onClick={() => dispatch({ type: ACTIONS.OPEN_DIALOG, entity: 'login' })}
+            >
+               Log in
+            </button>
+         )}
       </header>
    )
 }

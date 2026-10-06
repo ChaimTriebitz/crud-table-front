@@ -1,157 +1,24 @@
 {
-   "banks": [
-      {
-         "name": "Contact",
-         "internal_name": "contact",
-         "element_type": "input"
-      },
-      {
-         "name": "Position",
-         "internal_name": "position",
-         "element_type": "input"
-      },
-      {
-         "name": "Email",
-         "internal_name": "email",
-         "element_type": "input",
-         "type": "email"
-      },
-      {
-         "name": "Cell Number",
-         "internal_name": "cell",
-         "element_type": "input",
-         "type": "number"
-      },
-      {
-         "name": "Office Number",
-         "internal_name": "office",
-         "element_type": "input",
-         "type": "number"
-      },
-      {
-         "name": "Lender Type",
-         "internal_name": "lender",
-         "element_type": "input"
-      },
-      {
-         "name": "Loan Size",
-         "internal_name": "loan",
-         "element_type": "input"
-      },
-      {
-         "name": "Territories",
-         "internal_name": "territories",
-         "element_type": "input"
-      },
-      {
-         "name": "Website",
-         "internal_name": "website",
-         "element_type": "input"
-      }
-   ],
-   "lenders": [
-      {
-         "name": "Lender",
-         "internal_name": "lender",
-         "element_type": "input"
-      },
-      {
-         "name": "type",
-         "internal_name": "type",
-         "element_type": "multi_select",
-         "options": [
-            {
-               "option_display": "CMBS",
-               "option_value": "CMBS",
-               "id": 1
-            },
-            {
-               "option_display": "Construction Loan",
-               "option_value": "Construction Loan",
-               "id": 2
-            },
-            {
-               "option_display": "Bank",
-               "option_value": "Bank",
-               "id": 3
-            },
-            {
-               "option_display": "Fund",
-               "option_value": "Fund",
-               "id": 4
-            },
-            {
-               "option_display": "Freddie Fannie",
-               "option_value": "Freddie Fannie",
-               "id": 5
-            },
-            {
-               "option_display": "SBL",
-               "option_value": "SBL",
-               "id": 6
-            }
-         ]
-      },
-      {
-         "name": "Deal Size",
-         "internal_name": "deal_size",
-         "element_type": "input",
-         "type": "number"
-      },
-      {
-         "name": "Contact",
-         "internal_name": "contact",
-         "element_type": "input"
-      },
-      {
-         "name": "Position",
-         "internal_name": "position",
-         "element_type": "select",
-         "options": [
-            {
-               "option_display": "Team Leader",
-               "option_value": "Team Leader",
-               "id": 1
-            },
-            {
-               "option_display": "Assistant Vice President",
-               "option_value": "Assistant Vice President",
-               "id": 2
-            },
-            {
-               "option_display": "Originator",
-               "option_value": "Originator",
-               "id": 3
-            },
-            {
-               "option_display": "Loan Officer",
-               "option_value": "Loan Officer",
-               "id": 4
-            },
-            {
-               "option_display": "MANAGING DIRECTOR",
-               "option_value": "MANAGING DIRECTOR",
-               "id": 5
-            }
-         ]
-      },
-      {
-         "name": "Office",
-         "internal_name": "office",
-         "element_type": "input",
-         "type": "tel"
-      },
-      {
-         "name": "Cell",
-         "internal_name": "cell",
-         "element_type": "input",
-         "type": "tel"
-      },
-      {
-         "name": "Email",
-         "internal_name": "email",
-         "element_type": "input",
-         "type": "email"
-      }
-   ]
+  "banks": [
+    {"name":"Bank","internal_name":"bank","element_type":"input"},
+    {"name":"Contact","internal_name":"contact","element_type":"input"},
+    {"name":"Position","internal_name":"position","element_type":"input"},
+    {"name":"Email","internal_name":"email","element_type":"input","type":"email"},
+    {"name":"Cell Number","internal_name":"cell","element_type":"input","type":"number"},
+    {"name":"Office Number","internal_name":"office","element_type":"input","type":"number"},
+    {"name":"Lender Type","internal_name":"lender","element_type":"input"},
+    {"name":"Loan Size","internal_name":"loan","element_type":"input"},
+    {"name":"Territories","internal_name":"territories","element_type":"input"},
+    {"name":"Website","internal_name":"website","element_type":"input"}
+  ],
+  "lenders": [
+    {"name":"Lender","internal_name":"lender","element_type":"input"},
+    {"name":"type","internal_name":"type","element_type":"multi_select","options":[{"option_display":"CMBS","option_value":"CMBS","id":1},{"option_display":"Construction Loan","option_value":"Construction Loan","id":2},{"option_display":"Bank","option_value":"Bank","id":3},{"option_display":"Fund","option_value":"Fund","id":4},{"option_display":"Freddie Fannie","option_value":"Freddie Fannie","id":5},{"option_display":"SBL","option_value":"SBL","id":6}]},
+    {"name":"Deal Size","internal_name":"deal_size","element_type":"input","type":"number"},
+    {"name":"Contact","internal_name":"contact","element_type":"input"},
+    {"name":"Position","internal_name":"position","element_type":"select","options":[{"option_display":"Team Leader","option_value":"Team Leader","id":1},{"option_display":"Assistant Vice President","option_value":"Assistant Vice President","id":2},{"option_display":"Originator","option_value":"Originator","id":3},{"option_display":"Loan Officer","option_value":"Loan Officer","id":4},{"option_display":"MANAGING DIRECTOR","option_value":"MANAGING DIRECTOR","id":5}]},
+    {"name":"Office","internal_name":"office","element_type":"input","type":"tel"},
+    {"name":"Cell","internal_name":"cell","element_type":"input","type":"tel"},
+    {"name":"Email","internal_name":"email","element_type":"input","type":"email"}
+  ]
 }

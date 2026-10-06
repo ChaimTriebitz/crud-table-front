@@ -1,138 +1,29 @@
 {
-   "banks": [
-      {
-         "name": "Actions",
-         "cell_type": "actions",
-         "headers": [
-            {
-               "cell_type": "select"
-            },
-            {
-               "cell_type": "details"
-            },
-            {
-               "cell_type": "remove",
-               "msg": "bank"
-            }
-         ]
-      },
-      {
-         "name": "Bank",
-         "internal_name": "bank",
-         "cell_type": "text"
-      },
-      {
-         "name": "Contact",
-         "internal_name": "contact",
-         "cell_type": "text"
-      },
-      {
-         "name": "Position",
-         "internal_name": "position",
-         "cell_type": "text"
-      },
-      {
-         "name": "Email",
-         "internal_name": "email",
-         "cell_type": "text"
-      },
-      {
-         "name": "Cell Number",
-         "internal_name": "cell",
-         "cell_type": "text",
-         "type": "number"
-      },
-      {
-         "name": "Office Number",
-         "internal_name": "office",
-         "cell_type": "text",
-         "type": "number"
-      },
-      {
-         "name": "Lender Type",
-         "internal_name": "lender",
-         "cell_type": "text"
-      },
-      {
-         "name": "Loan Size",
-         "internal_name": "loan",
-         "cell_type": "text"
-      },
-      {
-         "name": "Territories",
-         "internal_name": "territories",
-         "cell_type": "text"
-      },
-      {
-         "name": "Website",
-         "internal_name": "website",
-         "cell_type": "text"
-      }
-   ],
-   "lenders": [
-      {
-         "name": "Actions",
-         "cell_type": "actions",
-         "headers": [
-            {
-               "cell_type": "select"
-            },
-            {
-               "cell_type": "details"
-            },
-            {
-               "cell_type": "remove",
-               "msg": "lender"
-            }
-         ]
-      },
-      {
-         "name": "Lender",
-         "internal_name": "lender",
-         "cell_type": "text",
-         "sort_by": "lender",
-         "default_sort": "asc"
-      },
-      {
-         "name": "type",
-         "internal_name": "type",
-         "cell_type": "categories",
-         "sort_by": "type"
-      },
-      {
-         "name": "Deal Size",
-         "internal_name": "deal_size",
-         "cell_type": "text"
-      },
-      {
-         "name": "Contact",
-         "internal_name": "contact",
-         "cell_type": "text"
-      },
-      {
-         "name": "Position",
-         "internal_name": "position",
-         "cell_type": "text"
-      },
-      {
-         "name": "Office",
-         "internal_name": "office",
-         "cell_type": "phone"
-      },
-      {
-         "name": "Cell",
-         "internal_name": "cell",
-         "cell_type": "phone"
-      },
-      {
-         "name": "Email",
-         "internal_name": "email",
-         "cell_type": "email"
-      },
-      {
-         "name": "Notes",
-         "internal_name": "notes",
-         "cell_type": "notes"
-      }
-   ]
+  "banks": [
+    {"name":"Actions","cell_type":"actions","headers":[{"cell_type":"select"},{"cell_type":"details"},{"cell_type":"remove","msg":"bank"}]},
+    {"name":"Source","internal_name":"_source","cell_type":"source"},
+    {"name":"Bank","internal_name":"bank","cell_type":"text"},
+    {"name":"Contact","internal_name":"contact","cell_type":"text"},
+    {"name":"Position","internal_name":"position","cell_type":"text"},
+    {"name":"Email","internal_name":"email","cell_type":"text"},
+    {"name":"Cell Number","internal_name":"cell","cell_type":"text","type":"number"},
+    {"name":"Office Number","internal_name":"office","cell_type":"text","type":"number"},
+    {"name":"Lender Type","internal_name":"lender","cell_type":"text"},
+    {"name":"Loan Size","internal_name":"loan","cell_type":"text"},
+    {"name":"Territories","internal_name":"territories","cell_type":"text"},
+    {"name":"Website","internal_name":"website","cell_type":"text"}
+  ],
+  "lenders": [
+    {"name":"Actions","cell_type":"actions","headers":[{"cell_type":"select"},{"cell_type":"details"},{"cell_type":"remove","msg":"lender"}]},
+    {"name":"Source","internal_name":"_source","cell_type":"source"},
+    {"name":"Lender","internal_name":"lender","cell_type":"text","sort_by":"lender","default_sort":"asc"},
+    {"name":"type","internal_name":"type","cell_type":"categories","sort_by":"type"},
+    {"name":"Deal Size","internal_name":"deal_size","cell_type":"text"},
+    {"name":"Contact","internal_name":"contact","cell_type":"text"},
+    {"name":"Position","internal_name":"position","cell_type":"text"},
+    {"name":"Office","internal_name":"office","cell_type":"phone"},
+    {"name":"Cell","internal_name":"cell","cell_type":"phone"},
+    {"name":"Email","internal_name":"email","cell_type":"email"},
+    {"name":"Notes","internal_name":"notes","cell_type":"notes"}
+  ]
 }

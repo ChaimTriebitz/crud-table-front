@@ -2,8 +2,8 @@
    flex-wrap: wrap;
    align-items: flex-end;
    justify-content: space-between;
-   gap: 20px;
-   padding: 28px 4px 20px;
+   gap: 24px;
+   padding: 24px 2px 18px;
 
    .page-intro {
       align-items: flex-end;
@@ -43,7 +43,7 @@
    }
 
    .search {
-      width: min(280px, 42vw);
+      width: min(320px, 34vw);
       min-height: 42px;
       align-items: center;
       position: relative;

@@ -14,8 +14,26 @@ export const reducer = (state, action) => {
          return { ...state, [action.entity]: [...state[action.entity], ...action.payload] }
       case ACTIONS.POP:
          return { ...state, [action.entity]: state[action.entity]?.filter((id) => !action.payload.includes(id)) }
+      case ACTIONS.LOCAL_CREATE:
+         return {
+            ...state,
+            [action.entity]: [...(state[action.entity] || []), action.payload],
+         }
+      case ACTIONS.LOCAL_UPDATE:
+         return {
+            ...state,
+            [action.entity]: (state[action.entity] || []).map(row =>
+               row._id === action.payload.id
+                  ? { ...row, ...action.payload.values }
+                  : row
+            ),
+         }
+      case ACTIONS.LOCAL_REMOVE:
+         return {
+            ...state,
+            [action.entity]: (state[action.entity] || []).filter(row => row._id !== action.payload),
+         }
       default:
          return state
    }
 };
-

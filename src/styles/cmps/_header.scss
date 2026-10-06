@@ -95,10 +95,13 @@
             height: 38px;
          }
 
-         .brand-copy span,
-         .header-page {
+         .brand-copy span {
             display: none;
          }
+      }
+
+      .header-page {
+         display: none;
       }
 
       .nav {

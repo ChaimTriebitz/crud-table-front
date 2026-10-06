@@ -2,10 +2,9 @@ import { svgs } from '../../assets'
 import { useGlobalState } from '../../hooks'
 import { ACTIONS } from '../../state'
 
-
 export const AddRow = () => {
-
-   const { dispatch } = useGlobalState()
+   const { dispatch, page } = useGlobalState()
+   const label = page === 'banks' ? 'Add bank' : 'Add lender'
 
    const handleAddRow = () => {
       dispatch({
@@ -16,7 +15,15 @@ export const AddRow = () => {
 
    return (
       <section className='add-row'>
-         <button onClick={handleAddRow}>{svgs.plus}</button>
+         <button
+            type='button'
+            className='add-row-button'
+            onClick={handleAddRow}
+            aria-label={label}
+         >
+            {svgs.plus}
+            <span>{label}</span>
+         </button>
       </section>
    )
 }

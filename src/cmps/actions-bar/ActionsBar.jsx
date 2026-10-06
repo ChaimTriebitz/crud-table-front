@@ -1,34 +1,30 @@
-import { useState } from 'react'
-import { useGlobalState, useUpdateEffect } from '../../hooks'
-import { FILTERS } from '../../data'
-import { Select } from '../inputs/Select'
-import { ACTIONS } from '../../state'
-import { AddRow, InsertData, MultiSelect, Search } from '..'
+import { AddRow, Search } from '..'
+import { useGlobalState } from '../../hooks'
 
 export const ActionsBar = () => {
-   const [value, setValue] = useState('')
-   const { dispatch, filters, page } = useGlobalState()
-   const handleChange = (a, b) => {
-      setValue(b)
-   }
-
-   // useUpdateEffect(() => {
-   //    dispatch({ type: ACTIONS.SET, entity: 'filters', payload: { ...filters, category: value } })
-   // }, [value])
-
-   // const { field, options } = FILTERS[page]?.categories
+   const { page, banks, lenders } = useGlobalState()
+   const isBanks = page === 'banks'
+   const count = isBanks ? banks.length : lenders.length
+   const title = isBanks ? 'Banks' : 'Lenders'
+   const description = isBanks
+      ? 'Manage bank contacts and lending information.'
+      : 'Manage lender contacts, deal sizes and notes.'
 
    return (
-      <div className='actions-bar'>
-         {/* <Select
-            field={field}
-            options={options}
-            value={value}
-            handleChange={handleChange}
-         /> */}
-         {/* <InsertData /> */}
-         <Search />
-         <AddRow />
-      </div>
+      <section className='actions-bar'>
+         <div className='page-intro'>
+            <div>
+               <span className='eyebrow'>DATA</span>
+               <h1>{title}</h1>
+               <p>{description}</p>
+            </div>
+            <span className='record-count'>{count} records</span>
+         </div>
+
+         <div className='actions-controls'>
+            <Search />
+            <AddRow />
+         </div>
+      </section>
    )
 }

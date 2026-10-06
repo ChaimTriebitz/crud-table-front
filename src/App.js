@@ -1,11 +1,10 @@
-import { Dialogs, Footer, Header, Main, Msg } from './cmps'
+import { Dialogs, Header, Main, Msg } from './cmps'
 
 function App() {
-
-   document.title = 'Vito'
+   document.title = 'Vito | CRM'
 
    return (
-      <div className="App" >
+      <div className="App">
          <Msg />
          <Dialogs />
          <Header />
@@ -15,5 +14,3 @@ function App() {
 }
 
 export default App
-
-

@@ -107,4 +107,4 @@
       transform: rotate(360deg);
       background-position: 50% 36px;
    }
-}
+}\n\n@keyframes dialog-in {\n   from {\n      opacity: 0;\n      transform: translateY(8px) scale(0.99);\n   }\n\n   to {\n      opacity: 1;\n      transform: translateY(0) scale(1);\n   }\n}\n

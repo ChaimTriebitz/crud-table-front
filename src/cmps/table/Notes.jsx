@@ -1,9 +1,3 @@
-import React from 'react'
-
-export const Notes = ({ header, row }) => {
-   return (
-      <div className='notes'>
-
-      </div>
-   )
-}
+export const Notes = ({ header, row }) => (
+   <div className='notes'>{row[header.internal_name] || row.notes || ''}</div>
+)

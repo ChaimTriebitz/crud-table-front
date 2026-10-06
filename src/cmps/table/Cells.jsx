@@ -1,4 +1,4 @@
-import { Date, Remove, SelectRow, Text, Details, Actions, Phone, Email, Notes } from '..'
+import { Date, Remove, SelectRow, Text, Details, Actions, Phone, Email, Notes, Source } from '..'
 
 export const Cells = ({ row, header }) => {
    switch (header.cell_type) {
@@ -11,6 +11,7 @@ export const Cells = ({ row, header }) => {
       case 'date': return <Date row={row} header={header} />
       case 'actions': return <Actions row={row} header={header} />
       case 'notes': return <Notes row={row} header={header} />
+      case 'source': return <Source row={row} header={header} />
       default: return <Text row={row} header={header} />
    }
 }

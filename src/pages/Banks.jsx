@@ -16,17 +16,17 @@ export const Banks = () => {
       dispatch({ type: ACTIONS.SET, entity: 'isDataLoading', payload: true })
       get.data('banks')
          .then((res) => {
-            const rows = isAuthenticated ? res.data : applyDemoChanges('banks', res.data)
+            const rows = applyDemoChanges('banks', res.data)
             dispatch({
                type: ACTIONS.SET,
                entity: 'banks',
                payload: rows.map(row => ({
                   ...row,
-                  _source: row._source || (isAuthenticated ? 'database' : 'database'),
-                  _canEdit: isAuthenticated && Boolean(
+                  _source: row._source === 'local' ? 'local' : 'database',
+                  _canEdit: row._source === 'local' || (isAuthenticated && Boolean(
                      row.createdBy && loggedInUser?._id &&
                      String(row.createdBy) === String(loggedInUser._id)
-                  ),
+                  )),
                }))
             })
             dispatch({ type: ACTIONS.SET, entity: 'serverConnected', payload: true })

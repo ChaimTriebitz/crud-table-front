@@ -3,7 +3,7 @@
    height: 100%;
    overflow: auto;
    position: relative;
-   flex: 1;
+   flex: 1 1 auto;
    background: #fff;
    border: 1px solid #dfe9ed;
    border-radius: $border-radius;
@@ -11,10 +11,10 @@
 
    table {
       width: 100%;
-      min-width: 920px;
+      min-width: 1040px;
       border-collapse: separate;
       border-spacing: 0;
-      height: fit-content;
+      table-layout: auto;
 
       thead {
          position: sticky;
@@ -34,6 +34,11 @@
 
             &:first-child {
                padding-left: 18px;
+            }
+
+            &:first-child,
+            &:last-child {
+               text-align: center;
             }
          }
       }
@@ -57,13 +62,20 @@
          color: #3e505a;
          font-size: 0.82rem;
          vertical-align: middle;
+         white-space: nowrap;
 
          &:first-child {
             padding-left: 18px;
+            text-align: center;
          }
 
          &.actions {
             min-width: 120px;
+            text-align: center;
+         }
+
+         .mobile-header {
+            display: none;
          }
       }
 
@@ -74,10 +86,6 @@
 
       .th-container p {
          font-size: inherit;
-      }
-
-      .mobile-header {
-         display: none;
       }
 
       .no-match {
@@ -164,6 +172,7 @@
 
             &:first-child {
                padding-left: 14px;
+               text-align: right;
             }
 
             .mobile-header {

@@ -1,82 +1,24 @@
-import { Header } from './Header.jsx'
-import { Main } from './Main.jsx'
-import { Footer } from './Footer.jsx'
-import { Msg } from './Msg.jsx'
-
-// INPUTS
-import { Inputs } from './inputs/Inputs.jsx'
-import { Input } from './inputs/Input.jsx'
-import { Select } from './inputs/Select.jsx'
-import { Textarea } from './inputs/Textarea.jsx'
-import { MultiSelect } from './inputs/MultiSelect.jsx'
-
-// AUTH
-import { Register } from './auth/Register.jsx'
-import { Login } from './auth/Login.jsx'
-
-// TABLE
-import { Table } from './table/Table.jsx'
-import { Cells } from './table/Cells.jsx'
-import { Actions } from './table/Actions.jsx'
-import { Text } from './table/Text.jsx'
-import { Phone } from './table/Phone.jsx'
-import { Email } from './table/Email.jsx'
-import { Date } from './table/Date.jsx'
-import { Remove } from './table/Remove.jsx'
-import { SelectRow } from './table/SelectRow.jsx'
-import { Details } from './table/Details.jsx'
-import { Notes } from './table/Notes.jsx'
-import { SortHeader } from './table/SortHeader.jsx'
-
-// DIALOG
-import { Dialogs } from './dialogs/Dialogs.jsx'
-import { DetailsDialog } from './dialogs/DetailsDialog.jsx'
-import { AddRowDialog } from './dialogs/AddRowDialog.jsx'
-import { ConfirmDialog } from './dialogs/ConfirmDialog.jsx'
-
-// ACTIONS-BAR
-import { ActionsBar } from './actions-bar/ActionsBar.jsx'
-import { AddRow } from './actions-bar/AddRow.jsx'
-import { Search } from './actions-bar/Search.jsx'
-import { InsertData } from './actions-bar/InsertData.jsx'
-import { InsertXlFile } from './actions-bar/InsertXlFile.jsx'
-
-export {
-   Msg,
-   Header,
-   Main,
-   Footer,
-   // ACTIONS-BAR
-   InsertXlFile,
-   InsertData,
-   ActionsBar,
-   AddRow,
-   Search,
-   // INPUTS
-   Inputs,
-   Textarea,
-   MultiSelect,
-   Select,
-   Input,
-   // AUTH
-   Register,
-   Login,
-   // TABLE
-   SortHeader,
-   Table,
-   Cells,
-   Text,
-   SelectRow,
-   Date,
-   Phone,
-   Email,
-   Remove,
-   Details,
-   Actions,
-   Notes,
-   // DIALOGS
-   Dialogs,
-   ConfirmDialog,
-   DetailsDialog,
-   AddRowDialog,
-}
+export * from './auth/Login'
+export * from './auth/Register'
+export * from './dialogs/Dialogs'
+export * from './dialogs/AddRowDialog'
+export * from './dialogs/DetailsDialog'
+export * from './dialogs/ConfirmDialog'
+export * from './inputs'
+export * from './table/Table'
+export * from './table/Actions'
+export * from './table/Cells'
+export * from './table/Date'
+export * from './table/Details'
+export * from './table/Email'
+export * from './table/Notes'
+export * from './table/Phone'
+export * from './table/Remove'
+export * from './table/SelectRow'
+export * from './table/SortHeader'
+export * from './table/Text'
+export * from './table/Source'
+export * from './Footer'
+export * from './Header'
+export * from './Main'
+export * from './Msg'

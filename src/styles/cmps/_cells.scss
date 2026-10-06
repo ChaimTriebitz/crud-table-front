@@ -4,8 +4,6 @@ td {
       align-items: center;
 
       .select-row {
-         // appearance: none;
-         // aspect-ratio: 1;
          min-height: 23px;
          height: 23px;
          width: 23px;
@@ -15,4 +13,30 @@ td {
          cursor: pointer;
       }
    }
+
+   .row-source {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 52px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .08em;
+   }
+
+   .row-source.database {
+      background: rgba(50, 120, 255, .12);
+   }
+
+   .row-source.local {
+      background: rgba(255, 170, 0, .18);
+   }
+}
+
+.readonly-notice {
+   margin: 0 0 16px;
+   font-size: 13px;
+   opacity: .7;
 }

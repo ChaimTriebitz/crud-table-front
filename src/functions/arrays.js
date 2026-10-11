@@ -3,14 +3,20 @@ export const arrays = {
    sortBy
 }
 
-function filterObjects(data = [], fields = [], search) {
-   return data.filter(d => fields.some(f => d[f]?.toLowerCase().includes(search?.toLowerCase())))
+function filterObjects(data = [], fields = [], search = '') {
+   const query = String(search ?? '').trim().toLowerCase()
+   if (!query) return data
+
+   return data.filter(row =>
+      fields.some(field => String(row[field] ?? '').toLowerCase().includes(query))
+   )
 }
 
 function sortBy(data = [], by = '', dir) {
-   return data.sort((a, b) => {
+   return [...data].sort((a, b) => {
       if (!by || !dir || a[by] === b[by]) return 0
       if (a[by] < b[by]) return dir === 'asc' ? -1 : 1
       if (a[by] > b[by]) return dir === 'asc' ? 1 : -1
+      return 0
    })
 }

@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Dialogs, Footer, Header, Main, Msg } from './cmps'
+import { Dialogs, Header, Main, Msg } from './cmps'
 import { useLogInUser } from './hooks'
 
 function App() {

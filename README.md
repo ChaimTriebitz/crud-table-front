@@ -1,5 +1,10 @@
 # Vito — Banks & Lenders Directory
 
+
+[![Frontend CI](https://github.com/ChaimTriebitz/crud-table-front/actions/workflows/ci.yml/badge.svg)](https://github.com/ChaimTriebitz/crud-table-front/actions/workflows/ci.yml)
+
+![Vito dashboard preview](https://raw.githubusercontent.com/ChaimTriebitz/ct/master/public/projects/proj.crud-table.png)
+
 Vito is a React-based table manager for organizing bank and lender relationships. It focuses on a practical workflow: scan records, search for a contact, update information, and keep the data organized in a structured table.
 
 **Live app:** [vito-front.onrender.com](https://vito-front.onrender.com)  

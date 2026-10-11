@@ -1,13 +1,10 @@
-import { useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { objects } from '../functions'
 import { useUpdateEffect } from '../hooks'
 
 export const useForm = (initValues) => {
-
    const [values, setValues] = useState(initValues)
-
    const [changedValues, setChangedValues] = useState({})
-
    const initValuesRef = useRef(initValues)
 
    const restart = (val) => {
@@ -19,7 +16,7 @@ export const useForm = (initValues) => {
       setChangedValues(objects.getChangedProperties(initValuesRef.current, values))
    }, [values])
 
-   const handleChange = (name,value) => setValues((prev) => ({ ...prev, [name]: value }))
+   const handleChange = useCallback((name, value) => setValues(prev => ({ ...prev, [name]: value })), [])
 
    return {
       values,

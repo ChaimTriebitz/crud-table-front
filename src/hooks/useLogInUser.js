@@ -1,3 +1,4 @@
+import { useCallback } from 'react'
 import axios from 'axios'
 import { useGlobalState } from './useGlobalState'
 import { ACTIONS } from '../state'
@@ -8,20 +9,21 @@ export const useLogInUser = () => {
    const { dispatch } = useGlobalState()
    const navigate = useNavigate()
 
-   return async () => {
+   return useCallback(async () => {
       try {
          const { data } = await axios.get(urls.private.get, {
             headers: {
                'Content-Type': 'application/json',
-               'Authorization': `Bearer ${localStorage.getItem('vito')}`
+               Authorization: `Bearer ${localStorage.getItem('vito') || ''}`
             }
          })
+
          dispatch({ type: ACTIONS.SET, entity: 'loggedInUser', payload: data.user })
          navigate('/banks')
       } catch (error) {
          localStorage.removeItem('vito')
          dispatch({ type: ACTIONS.SET, entity: 'loggedInUser', payload: null })
-         console.log(error)
+         console.error('Unable to restore the current session', error)
       }
-   }
+   }, [dispatch, navigate])
 }

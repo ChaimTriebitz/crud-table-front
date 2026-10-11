@@ -1,3 +1,6 @@
+export * from './actions-bar/ActionsBar'
+export * from './actions-bar/AddRow'
+export * from './actions-bar/Search'
 export * from './auth/Login'
 export * from './auth/Register'
 export * from './dialogs/Dialogs'

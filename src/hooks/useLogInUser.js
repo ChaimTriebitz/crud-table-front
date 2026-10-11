@@ -24,3 +24,4 @@ export const useLogInUser = () => {
          console.log(error)
       }
    }
+}

@@ -1,6 +1,5 @@
-import axios from 'axios';
-import { URLS } from '../data';
-import { urls } from '../config';
+import axios from 'axios'
+import { urls } from '../config'
 
 export const create = {
    data,
@@ -12,13 +11,13 @@ async function data(data, page) {
       const res = await axios.post(urls?.[page]?.create, data, {
          headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${localStorage.getItem('vito')}`
+            "Authorization": `Bearer ${localStorage.getItem('vito') || ''}`
          }
       })
       return res.data
    } catch (err) {
       console.error(err)
-      throw err.response.data
+      throw err.response?.data || err
    }
 }
 
@@ -27,12 +26,12 @@ async function manyData(data, page) {
       const res = await axios.post(urls?.[page]?.createMany, data, {
          headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${localStorage.getItem('vito')}`
+            "Authorization": `Bearer ${localStorage.getItem('vito') || ''}`
          }
       })
       return res.data
    } catch (err) {
       console.error(err)
-      throw err.response.data
+      throw err.response?.data || err
    }
 }

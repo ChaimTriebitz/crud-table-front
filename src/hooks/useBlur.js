@@ -1,21 +1,16 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react'
 
 export function useBlur(callback, element) {
-
-   const ref = useRef(null);
-
-   const handleBlur = (e) => {
-      if (e.target.localName === element) {
-         callback();
-      } 
-   };
+   const ref = useRef(null)
 
    useEffect(() => {
-      document.addEventListener('mousedown', handleBlur);
-      return () => {
-         document.removeEventListener('mousedown', handleBlur);
-      };
-   }, []);
+      const handleBlur = (event) => {
+         if (event.target.localName === element) callback()
+      }
 
-   return ref;
+      document.addEventListener('mousedown', handleBlur)
+      return () => document.removeEventListener('mousedown', handleBlur)
+   }, [callback, element])
+
+   return ref
 }

@@ -1,18 +1,8 @@
-import { useEffect, useState } from 'react'
-import { useGlobalState } from '../../hooks'
+import { useState } from 'react'
 
-
-export const SelectRow = ({ row }) => {
-   const { dispatch, selectedRowsIds } = useGlobalState()
+export const SelectRow = () => {
    const [value, setValue] = useState(false)
 
-   useEffect(() => {
-
-   }, [value])
-   const handleSelectChange = (e) => {
-
-      selectedRowsIds.includes(row.id)
-   }
    return (
       <input
          className='select-row'
@@ -22,4 +12,3 @@ export const SelectRow = ({ row }) => {
       />
    )
 }
-

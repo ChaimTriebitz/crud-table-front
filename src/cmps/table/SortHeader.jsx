@@ -5,7 +5,6 @@ import { ACTIONS } from '../../state'
 
 export const SortHeader = ({ header }) => {
    const { sort, dispatch } = useGlobalState()
-
    const { default_sort, sort_by } = header
    const [dir, setDir] = useState('')
    const [svg, setSvg] = useState(svgs.sorting)
@@ -16,14 +15,12 @@ export const SortHeader = ({ header }) => {
          entity: 'sort',
          payload: { by: sort_by, dir: default_sort }
       })
-   }, [])
-
+   }, [default_sort, dispatch, sort_by])
 
    useUpdateEffect(() => {
       if (sort.by === sort_by) setDir(sort.dir)
       else setDir('')
    }, [sort])
-
 
    useUpdateEffect(() => {
       switch (dir) {
@@ -37,8 +34,6 @@ export const SortHeader = ({ header }) => {
             setSvg(svgs.sorting)
       }
    }, [dir])
-
-
 
    const handleClick = () => {
       const newDir = dir === 'asc' ? 'desc' : dir === 'desc' ? '' : 'asc'

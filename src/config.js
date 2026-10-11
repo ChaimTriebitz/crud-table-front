@@ -1,26 +1,26 @@
-const BASE_URL = process.env.REACT_APP_BASE_URL
+const BASE_URL = (process.env.REACT_APP_BASE_URL || '').replace(/\/+$/, '')
+const apiUrl = (path) => `${BASE_URL}/api/${path}`
 
 export const urls = {
    auth: {
-      register: `${BASE_URL}/api/auth/register`,
-      login: `${BASE_URL}/api/auth/login`
+      register: apiUrl('auth/register'),
+      login: apiUrl('auth/login')
    },
    private: {
-      get: `${BASE_URL}/api/private`
+      get: apiUrl('private')
    },
    banks: {
-      create: `${BASE_URL}/api/banks/create`,
-      createMany: `${BASE_URL}api/banks/createMany`,
-      get: `${BASE_URL}/api/banks`,
-      remove: `${BASE_URL}/api/banks/remove`,
-      update: `${BASE_URL}/api/banks/update`
+      create: apiUrl('banks/create'),
+      createMany: apiUrl('banks/createMany'),
+      get: apiUrl('banks'),
+      remove: apiUrl('banks/remove'),
+      update: apiUrl('banks/update')
    },
    lenders: {
-      create: `${BASE_URL}/api/lenders/create`,
-      createMany: `${BASE_URL}api/lenders/createMany`,
-      get: `${BASE_URL}/api/lenders`,
-      remove: `${BASE_URL}/api/lenders/remove`,
-      update: `${BASE_URL}/api/lenders/update`
-   },
+      create: apiUrl('lenders/create'),
+      createMany: apiUrl('lenders/createMany'),
+      get: apiUrl('lenders'),
+      remove: apiUrl('lenders/remove'),
+      update: apiUrl('lenders/update')
+   }
 }
-

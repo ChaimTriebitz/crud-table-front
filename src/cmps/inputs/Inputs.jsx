@@ -1,4 +1,7 @@
-import { Input, MultiSelect, Select, Textarea } from '../../cmps'
+import { Input } from './Input'
+import { MultiSelect } from './MultiSelect'
+import { Select } from './Select'
+import { Textarea } from './Textarea'
 
 export const Inputs = ({ field = {}, value, options = [], handleChange = () => {}, handleBlur = () => {}, disabled = false }) => {
    const { internal_name, name, element_type, className } = field

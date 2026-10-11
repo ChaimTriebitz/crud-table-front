@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 export const MultiSelect = ({ field = {}, value = [], handleChange = () => {}, options = [], disabled = false }) => {
    const [values, setValues] = useState(value || [])
    useEffect(() => { setValues(value || []) }, [value])
-   useEffect(() => { if (!disabled) handleChange(field.internal_name, values) }, [values, disabled, field.internal_name])
+   useEffect(() => { if (!disabled) handleChange(field.internal_name, values) }, [values, disabled, field.internal_name, handleChange])
    const handleCheckboxChange = (optionValue) => {
       if (disabled) return
       setValues(prev => prev.includes(optionValue) ? prev.filter(v => v !== optionValue) : [...prev, optionValue])

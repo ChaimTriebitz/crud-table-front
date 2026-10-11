@@ -1,5 +1,6 @@
 import { useGlobalState } from '../../hooks'
-import { AddRow, Search } from '..'
+import { AddRow } from './AddRow'
+import { Search } from './Search'
 
 export const ActionsBar = () => {
    const { page, banks, lenders } = useGlobalState()

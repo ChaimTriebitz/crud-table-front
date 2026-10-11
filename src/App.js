@@ -8,7 +8,7 @@ function App() {
 
    useEffect(() => {
       if (localStorage.getItem('vito')) login()
-   }, [])
+   }, [login])
 
    return (
       <div className='App'>
